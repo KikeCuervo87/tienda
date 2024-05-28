@@ -31,9 +31,11 @@ public class ProductoServiceImpl implements ProductoSevice {
 
     @Override
     public ProductoDto obtenerProducto(Long id) {
-        Producto producto = productoRepository.findById(id).orElseThrow();
+        Producto producto = productoRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Producto no encontrado con id " + id));
         return productoMapper.toDto(producto);
     }
+
 
     @Override
     public ProductoDto actualizarProducto(Long id, ProductoRequest productoRequest) {
