@@ -4,14 +4,17 @@ import com.pt.tienda.dto.ProductoDto;
 import com.pt.tienda.dto.ProductoRequest;
 import com.pt.tienda.exception.ResourceNotFoundException;
 import com.pt.tienda.service.ProductoSevice;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("/producto")
 public class ProductoController {
+
+    @Autowired
     private final ProductoSevice productoService;
 
     public ProductoController(ProductoSevice productoService) {
